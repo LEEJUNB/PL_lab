@@ -8,8 +8,13 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const route = require('./routes/index');
-const db = require('./db')
+const db = require('./db');
 
+// console.log(db.User);
+db.User.sync();
+// db.User.create({name:`aa`,password:`asd`,stud_id:123,admin:true}).then((r) => {
+//   console.log(r);
+// })
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -21,10 +26,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// database 연결
-db.connect();
-// db.end();
 
 app.use('/', route);
 

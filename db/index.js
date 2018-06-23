@@ -1,20 +1,36 @@
-const mysql = require('mysql');
+const path = require('path');
+const fs = require('fs');
+
+const Sequelize = require('sequelize');
 
 const config = require('../setting.json').database;
 
-const connection = mysql.createConnection({
-  host     : config.host,
-  user     : config.user,
-  password : config.password,
-  database : config.database
+const sequelize = new Sequelize(config.databaseSchema, config.user, config.password, {
+  host: config.host,
+  dialect: config.database
 });
 
-// connection.connect();
+console.log(__dirname);
+const __modelPath = __dirname+`/model`;
+const db = {};
+fs.readdirSync(__modelPath)
+  .filter(function(file) {
+    return (file.indexOf('.') !== 0) && (file !== 'index.js' && file !== 'config.js');
+  })
+  .forEach(function(file) {
+    var model = sequelize['import'](path.join(__modelPath, file));
+    db[model.name] = model;
+  });
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-module.exports = connection;
-// connection.query(`SELECT * FROM pl_lab.user`, (error, results, fields) => {
-//   if (error) throw error;
-//   console.log('The solution is: ', results);
-// });
+// sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.log('Connection has been established successfully.');
+//   })
+//   .catch(err => {
+//     console.error('Unable to connect to the database:', err);
+//   });
 
-// connection.end();
+module.exports = db;
