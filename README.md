@@ -9,8 +9,7 @@ npm install
 npm install -g nodemon
 ```
 2. mysql 설치하기
-3. 루트 폴더 안의 QUERY 파일을 참고해서 테이블 만들기(일단은 샘플)
-4. 루트 폴더의 setting.sample.json 을 참고해서 동일한 위치에 자신의 환경에 맞는 setting.json 파일 만들기
+3. 루트 폴더의 setting.sample.json 을 참고해서 동일한 위치에 자신의 환경에 맞는 setting.json 파일 만들기
 ```
 // 예시) setting.json
  {
@@ -18,11 +17,12 @@ npm install -g nodemon
       "host" : "localhost",
       "user" : "yongjun",
       "password" : "0000",
-      "database" : "pl_lab"
+      "databaseSchema" : "pl_lab",
+      "database": "mysql"
   }
 }
 ```
-5. 실행해봅시다.
+4. 실행해봅시다.
 ```
 // 루트디렉터리에서
 npm start
