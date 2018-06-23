@@ -10,8 +10,6 @@ const app = express();
 const route = require('./routes/index');
 const db = require('./db');
 
-// console.log(db.User);
-db.User.sync();
 // db.User.create({name:`aa`,password:`asd`,stud_id:123,admin:true}).then((r) => {
 //   console.log(r);
 // })
