@@ -9,8 +9,10 @@
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
+    "crypto-promise": "^2.1.0",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
+    "eslint-config-airbnb": "^17.0.0",
     "express": "~4.15.5",
     "express-mysql-session": "^2.0.0",
     "express-session": "^1.15.6",
@@ -18,6 +20,8 @@
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "sequelize": "^4.38.0",
-    "serve-favicon": "~2.4.5"
-  }
+    "serve-favicon": "~2.4.5",
+    "signale": "^1.2.1"
+  },
+  "devDependencies": {}
 }
