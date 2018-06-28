@@ -1,3 +1,4 @@
+// 전화번호 추가
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define('User', {
     id: {
@@ -13,12 +14,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    stud_Id: {
+    stud_id: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     admin: {
       type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue: false
+    },
+    phone_number: {
+      type: DataTypes.INTEGER,
       allowNull: true
     }
   });
