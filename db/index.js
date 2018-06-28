@@ -1,9 +1,9 @@
-const path = require("path");
-const fs = require("fs");
+const path = require('path');
+const fs = require('fs');
 
-const Sequelize = require("sequelize");
+const Sequelize = require('sequelize');
 
-const config = require("../setting.json").database;
+const config = require('../config/setting.json').database;
 
 const sequelize = new Sequelize(
   config.databaseSchema,
@@ -20,11 +20,11 @@ const db = {};
 fs.readdirSync(__modelPath)
   .filter(function(file) {
     return (
-      file.indexOf(".") !== 0 && (file !== "index.js" && file !== "config.js")
+      file.indexOf('.') !== 0 && (file !== 'index.js' && file !== 'config.js')
     );
   })
   .forEach(function(file) {
-    const model = sequelize["import"](path.join(__modelPath, file));
+    const model = sequelize['import'](path.join(__modelPath, file));
     model.sync();
     db[model.name] = model;
   });
