@@ -31,4 +31,7 @@ fs.readdirSync(__modelPath)
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.User.hasMany(db.Attendance);
+db.Attendance.belongsTo(db.User, { foreignKey: 'id' });
+
 module.exports = db;

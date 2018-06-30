@@ -7,21 +7,17 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true
       },
-      date: {
+      attendance_date: {
         type: DataTypes.DATE,
-        defaultValue: sequelize.NOW,
+        defaultValue: sequelize.literal('NOW()'),
         allowNull: false
       },
       user_id: {
-        type: DataTypes.DATE
+        type: DataTypes.INTEGER
       }
     },
     {
-      classMethods: {
-        associate: models => {
-          Attendancd.belongsTo(models.User);
-        }
-      }
+      timestamps: false
     }
   );
 };
