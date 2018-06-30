@@ -87,3 +87,7 @@ exports.logIn = async (req, res) => {
 exports.renderRegisterPage = (req, res) => {
   return res.render('register', { title: 'register page' });
 };
+
+exports.renderLoginPage = (req, res) => {
+  return res.render('login', { title: 'login page' });
+};
