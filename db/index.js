@@ -32,6 +32,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.User.hasMany(db.Attendance);
-db.Attendance.belongsTo(db.User, { foreignKey: 'id' });
+db.Attendance.belongsTo(db.User, { foreignKey: 'user_id' });
 
 module.exports = db;
