@@ -9,9 +9,9 @@ npm install
 npm install -g nodemon
 ```
 2. mysql 설치하기
-3. 루트 폴더의 setting.sample.json 을 참고해서 동일한 위치에 자신의 환경에 맞는 setting.json 파일 만들기
+3. setting폴더의 의 config.sample.json 을 참고해서 동일한 위치에 자신의 환경에 맞는 setting.json 파일 만들기
 ```
-// 예시) setting.json
+// 예시) config/setting.json
  {
    "database":{
       "host" : "localhost",

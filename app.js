@@ -1,18 +1,36 @@
-const express = require('express');
 const path = require('path');
+
+const express = require('express');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
 const route = require('./routes/index');
 const db = require('./db');
+const db_config = require('./config/setting.json').database;
 
-// db.User.create({name:`aa`,password:`asd`,stud_id:123,admin:true}).then((r) => {
-//   console.log(r);
-// })
+app.use(
+  session({
+    secret: '381612',
+    resave: false,
+    saveUninitialized: true,
+    store: new MySQLStore({
+      host: db_config.host,
+      port: 3306,
+      user: db_config.user,
+      password: db_config.password,
+      database: db_config.database
+    })
+  })
+);
+
+// configPassport(app, passport);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -25,6 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cors());
 app.use('/', route);
 
 // catch 404 and forward to error handler
