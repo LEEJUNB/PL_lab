@@ -4,7 +4,6 @@ const signale = require('signale');
 const db = require('../../db');
 
 const pbkdf2 = async (password, salt) => {
-  signale.fatal(password);
   const passwordHashed = await crypto.pbkdf2(
     password,
     salt,
@@ -26,7 +25,6 @@ const hashPassword = async password => {
 
 exports.signIn = async (req, res) => {
   const { name, password, stud_id, phone_number } = req.body;
-  console.log(stud_id);
   try {
     const user = await db.User.findOne({
       where: { stud_id: stud_id }
@@ -46,7 +44,7 @@ exports.signIn = async (req, res) => {
     });
     return res.status(200).json({ result });
   } catch (error) {
-    console.log(error);
+    signale.fatal(error);
     return res.status(500).json(error);
   }
 };
@@ -66,7 +64,6 @@ exports.logIn = async (req, res) => {
     const { salt, name } = user.dataValues;
     const realPassword = user.dataValues.password;
     const hashedInputPassword = await pbkdf2(inputPassword, salt);
-    console.log(hashedInputPassword.toString('base64'));
     if (hashedInputPassword.toString('base64') == realPassword) {
       sess = req.session;
       sess['id'] = stud_id;
@@ -81,9 +78,8 @@ exports.logIn = async (req, res) => {
         hashedInputPassword: hashedInputPassword.toString('base64')
       });
     }
-    console.log('----------------------');
   } catch (error) {
-    console.log(error);
+    signale.fatal(error);
     res.status(500).json(error);
   }
 };
