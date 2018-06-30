@@ -1,0 +1,45 @@
+.container
+{
+	width:100%;
+}
+
+.appForm
+{
+	margin:auto;
+}
+
+.appForm td
+{
+	text-align:center;
+}
+
+.appForm input
+{
+	width:170px;
+	height:30px;
+}
+
+.appForm button
+{
+	width:100px;
+	height:75px;
+
+
+	background-color:blue;
+	color:white;
+	font-size:15px;
+	font-weight:bold;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.etc,
+.etc > a
+{
+	text-decoration:none;
+	color:grey;
+}
