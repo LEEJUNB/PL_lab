@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/login.css' />
+	<script src='/javascripts/login.js'></script>
+  </head>
+  <body>
+	<form class="container">
+		<table class="appForm">
+			<tr>
+				<td>
+					<input type="number"
+					placeholder="학번"
+					required>
+				</td>
+				<td rowspan="2">
+					<button>
+						Login
+					</button>
+				</td>
+
+			</tr>
+			<tr>
+				<td>
+					<input type="password"
+					placeholder="비밀번호"
+					required>
+				</td>
+			</tr>
+			<tr>
+				<td class='etc'
+				colspan="2">
+					<a href=register>회원가입</a> / <a>비밀번호 찾기</a>
+				</td>
+			</tr>
+  		</table>
+
+  	</form>
+  </body>
+</html>
