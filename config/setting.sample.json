@@ -3,6 +3,7 @@
      "host" : "localhost",
      "user" : "username",
      "password" : "your_password",
+     "databaseSchema" : "pl_lab",
      "database" : "pl_lab"
  }
 }
