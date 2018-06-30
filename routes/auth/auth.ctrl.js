@@ -83,3 +83,7 @@ exports.logIn = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+exports.renderRegisterPage = (req, res) => {
+  return res.render('register', { title: 'register page' });
+};
