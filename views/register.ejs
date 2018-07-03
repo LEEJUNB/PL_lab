@@ -2,21 +2,21 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-	<link rel='stylesheet' href='/stylesheets/register.css' />
-	<script src='/javascripts/register.js'></script>
+    <link rel = "stylesheet" href="/stylesheets/style.css" />
+	<link rel = "stylesheet" href="/stylesheets/register.css" />
+	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src = "/javascripts/register.js"></script>
   </head>
   <body>
-   <form action="/" class="container">
+   <form class = "container">
 	<p>회원정보</p>
-	<table class="appForm">
+	<table class = "appForm">
   		<tr>
 			<td>*</td>
 			<td>이름</td>
 			<td>
-				<input type="text"
-				class="name"
-				required
+				<input type = "text"
+				class = "name"
 				autofocus>
 			</td>
 			<td></td>
@@ -25,52 +25,54 @@
 			<td>*</td>
 			<td>학번</td>
 			<td>
-				<input type="number"
-				class="SID"
-				pattern="\d{8}"
-				required>
+				<input type = "number"
+				class = "id">
 			</td>
-			<td style="text-align:left;">
-				<button type="button"
-				onclick="SIDCheck()">
-					중복검사
-				</button>
-			</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>*</td>
 			<td>패스워드</td>
 			<td>
-				<input type="password"
-				class='pw'
-				pattern=".{6,}"
-				onchange="CheckPW()"
-				required>
+				<input type = "password"
+				class = "pw"
+				onchange = "CheckPW()">
 			</td>
 			<td>
-				<p class='len_err'>비밀번호는 6글자 이상만 사용가능합니다.</p>
+				<p class = "len_err">비밀번호는 6글자 이상만 사용가능합니다.</p>
 			</td>
 		</tr>
-		<tr class='confirm'>
+		<tr class = "confirm">
 			<td>*</td>
 			<td>패스워드 확인</td>
 			<td>
-				<input type="password"
-				class='confirmPW'
-				onchange="CheckConfirm()"
-				required>
+				<input type = "password"
+				class = "confirmPW"
+				onchange = "CheckConfirm()">
 			</td>
 			<td>
-				<p class='confirm_err'></p>
+				<p class = "confirm_err"></p>
 			</td>
+		</tr>
+		<tr>
+			<td>*</td>
+			<td>이메일</td>
+			<td>
+				<input type = "email"
+				pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+				class = "email"
+				required>
+			</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>*</td>
 			<td>연락처</td>
 			<td>
-				<input type="tel"
-				pattern="(010)-\d{3,4}-\d{4}"
-				placeholder="010-****-****"
+				<input type = "tel"
+				pattern = "(010)\d{7,8}"
+				class = "tel"
+				placeholder = "-은 생략 후 입력"
 				required>
 			</td>
 			<td></td>
@@ -79,19 +81,20 @@
 			<td>*</td>
 			<td>학과</td>
 			<td>
-				<input type="text"
-				placeholder="컴퓨터공학과"
-				required>
+				<input type = "text"
+				class = "department"
+				placeholder = "컴퓨터공학">
 			</td>
 			<td></td>
 		</tr>
   	</table><br/>
 
-	<input type="submit"
-	value="가입신청"
-	class="commit"
-	onclick ="Commit()">
-
+	<button type = "button"
+	value = "가입신청"
+	class = "commit"
+	onclick = "Commit()">
+		가입신청
+	</button>
   </form>
   </body>
 </html>
